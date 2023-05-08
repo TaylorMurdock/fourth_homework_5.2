@@ -23,5 +23,18 @@ function checkPalindrome(str) {
     return true; // if loop finishes without finding any mismatches, string is a palindrome
 }
 
-
+// Sum Array
+// Write a function sumArray that takes an array as an argument. The array should contain numbers. The function should return the sum of the numbers in the array. Use a for loop within the function to iterate over the array and sum the contents. Use a variable such as
+// let sum = 0;
+// that will accumulate value within the loop. Expected result:
+// console.log(sumArray([1, 2, 3, 4, 5, 6]));
+// => 21
     
+function sumArray (arr = [1, 2, 3, 4, 5, 6]) { //  Write a function sumArray that takes an array as an argument, array should contain numbers 1-6
+    let sum = 0  // initializing a variable called sum and assigning it a value of 0
+    for (i=0; i<arr.length; i+=1) {  // a loop starting with the first index and running one by one for however long the arr is 
+        sum += arr[i] // adding the current element of the arry to the running total of sum(0) aka sum = sum + arr[i]
+    }
+    return sum; // takes the result of the loop above and replaces the value of sum
+}
+ console.log(sumArray())
