@@ -38,3 +38,43 @@ function sumArray (arr = [1, 2, 3, 4, 5, 6]) { //  Write a function sumArray tha
     return sum; // takes the result of the loop above and replaces the value of sum
 }
  console.log(sumArray())
+
+
+ //Prime
+//  Step One
+// Write a function called checkPrime that will test whether a number is Prime. The function will return true (Boolean) if Prime, false if not. Hint: Check every number up to the square root. To do this, try a for loop.
+
+function checkPrime (num) {
+    if (num <=1 ) {      // 1 is not a prime number and neg nums cant be prime so everything 1 and below is false
+        return false;
+    }
+
+    const sqrt = Math.floor(Math.sqrt(num));  // takes the num and finds the sqrt then is rounded down which is then stored as sqrt
+    for (let i = 2 ; i <= sqrt; i +=1) { // sets up a for loop that will run through every integer from 2 to the square root of the num
+        if (num % i === 0){     // if a number divides evenly it is not a prime so return false
+            return false;
+        }
+    }
+
+    return true; // every prime choice has ben labeled false so everything else is true
+}
+
+console.log(checkPrime(7)); // true
+console.log(checkPrime(10)); // false
+console.log(checkPrime(1)); // false
+console.log(checkPrime(-7)); // false
+
+
+// Step Two
+// Write another function called printPrimes that will print (console log) all the Primes up to an arbitrary limit. For example, if you invoke your function with printPrimes(97), it will print all the Prime numbers up to and including 97.
+// This function can call on the previous checkPrime function.
+
+function printPrimes(limit) {  // defines a function called printPrimes that takes in one argument, limit.
+    for (let i = 2; i <= limit; i +=1) {  //for loop that starts at 2 and goes up to the limit specified in the function argument.
+        if (checkPrime(i)) {  //This line calls the checkPrime function (which we defined in Step One) on each integer i from 2 to limit. If checkPrime(i) returns true the code inside the curly braces will be executed.
+            console.log(i);
+        }
+    }
+}
+
+printPrimes(97); // calls to the printPrimes function and sets the limit to 97
