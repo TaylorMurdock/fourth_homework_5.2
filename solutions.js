@@ -78,3 +78,36 @@ function printPrimes(limit) {  // defines a function called printPrimes that tak
 }
 
 printPrimes(97); // calls to the printPrimes function and sets the limit to 97
+
+// Rock Paper Scissors
+// Create the rock paper scissors game for the console! Rock paper scissors is a game of chance where two players throw out one of the three options, rock, paper, or scissors. To determine who wins, use the following guidelines: rock beats scissors, scissors beats paper, paper beats rock.
+//Write a function called randomMove that returns a randomly chosen move (rock, paper, or scissors).
+//Then create a function called rockPaperScissors that runs one round of the game. It should accept two arguments, the computer's move and the user's move, and somehow compare the two to decide who the winner is and return who won.
+
+function randomMove () {    // creates a function called "randomMove" and follows the things below
+    const moves = ["rock", "paper", "scissors"] // creates an array of moves that will be randomized 
+    const randomIndex = Math.floor(Math.random() * 3); //Math.random is taking a random number from 0-1 then * it by 3. math.floor is taking that number and rounds it down
+    return moves[randomIndex];
+}
+
+let computersMove = randomMove(); // setting computersMove and usersMove to the function above
+let usersMove = randomMove();
+
+function rockPaperScissors (computersMove, usersMove) { // creates a function that will send an output of both computer and user moves
+   console.log(`Computer chose ${computersMove}`);
+   console.log(`User chose ${usersMove}`);
+
+   if (computersMove === usersMove) { // if they both chose the same it is a tie 
+    console.log(`It is a tie since both users chose ${computersMove}`)
+   } else if ( // if computers choice beats users choice computer wins
+    (computersMove === "rock" && usersMove === "scissors") ||
+    (computersMove === "paper" && usersMove === "rock") ||
+    (computersMove === "scissors" && usersMove === "paper")
+   ){
+    console.log(`Computer wins with ${computersMove} because User chose ${usersMove}`);
+   } else { // only thing left is when the user wins 
+    console.log(`User wins with ${usersMove} because the computer chose ${computersMove}`);
+   }
+}
+
+rockPaperScissors(computersMove, usersMove); // runs rockPaperScissors using the moves each user chose
